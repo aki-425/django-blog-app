@@ -65,7 +65,9 @@
                 {% endif %}
                 {% endfor %}
             </div>
-             {%include "blog/snippets/pagenation.html"%}
+            {%if post%}
+            {%include "blog/snippets/pagenation.html"%}
+            {% endif %}
                        
         </div>
         
