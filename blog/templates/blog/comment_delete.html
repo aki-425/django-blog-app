@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row p-3 mb-5">
+        <div class="col-9">
+            <div class="col-md-11 mx-auto">
+            
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>{{object.name}}:{{object.text}}</p>
+                    <p>このコメントを削除しますか？</p>
+                
+                    <button type="submit" class="btn btn-denjer">削除</button>
+                </form>
+            
+            </div>
+        </div>
+
+        <div class="col-3">
+            {% include "blog/snippets/sidebar.html" %}
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}

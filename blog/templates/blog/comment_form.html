@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="p-3 mb-5"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            {%if post%}
+            <h1>コメントを作成する</h1>
+            <h4 class="mb-3">
+                Title:{{post.title}}
+            </h4>
+            {%elif comment%}
+            <h1 class="mb-3">
+                返信
+            </h1>
+            <h4>
+                RE:{{comment.text}}
+
+            </h4>
+            {%endif%}
+
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+        </div> <!-- col-9 divの閉じ忘れを修正 -->
+        <div class="col-3">
+            {% include "blog/snippets/sidebar.html" %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
